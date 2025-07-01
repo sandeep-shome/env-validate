@@ -58,8 +58,8 @@ export const validateEnv = (schema: EnvSchema): ValidVars => {
   }
 
   if (warnings.length != 0) {
-    console.error(logSymbols.warning, 'Invalid environment configuration:');
-    errors.forEach((warn) => console.error(`- ${warn}`));
+    console.log(logSymbols.warning, 'Invalid environment configuration:');
+    errors.forEach((warn) => console.log(`- ${warn}`));
   }
 
   if (errors.length === 0) {
