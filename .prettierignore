@@ -1,0 +1,15 @@
+# Ignore dependencies
+node_modules
+
+# Ignore Git config
+.git
+
+# Lock files – not needed, but harmless to include
+package-lock.json
+
+# Build output (if applicable)
+dist
+
+# Ignore Prettier config files themselves (optional)
+.prettierignore
+.prettierrc
