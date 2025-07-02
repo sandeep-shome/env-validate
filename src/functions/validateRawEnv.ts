@@ -38,6 +38,7 @@ export const validateRawEnv = (schema: EnvSchema): ValidateRawEnvRes => {
       case 'number':
         if (isNaN(Number(envRaw))) {
           result.errors.push(`${key} is expected to be a number, but got "${envRaw}"`);
+        } else {
           result.variables[key] = envRaw;
         }
         break;
