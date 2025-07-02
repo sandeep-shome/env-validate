@@ -1,9 +1,12 @@
+#!/usr/bin/env node
+
 import { Command } from 'commander';
 import { validateEnv } from '../main';
 import { logger } from '../utils/logger';
 import logSymbols from 'log-symbols';
 import path from 'path';
 import { pathToFileURL } from 'url';
+
 const program = new Command();
 
 program
@@ -19,19 +22,26 @@ program
 
     try {
       const fullPath = path.resolve(process.cwd(), options.schema);
-      const fileUrl = pathToFileURL(fullPath) as unknown as string;
+      const fileUrl = pathToFileURL(fullPath).href;
 
       const schemaModule = await import(fileUrl);
       const schema = schemaModule.schema;
 
       if (!schema) {
-        logger.error(`${logSymbols.error} Schema file must export a named export schema`);
+        logger.error(`${logSymbols.error} Schema file must export a named export called "schema"`);
         process.exit(1);
       }
 
       validateEnv(schema);
-    } catch (err) {
-      logger.error(`${logSymbols.error} Failed to load schema:', ${err}`);
-      process.exit(1);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        logger.error(`${logSymbols.error} Failed to load schema: ${err?.message}`);
+        process.exit(1);
+      } else {
+        logger.error(`${logSymbols.error} Failed to load schema: unknown error occurs!}`);
+        process.exit(1);
+      }
     }
   });
+
+program.parse(process.argv);
