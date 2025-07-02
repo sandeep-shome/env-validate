@@ -1,2 +1,1 @@
-export * from './types';
-export * from './functions/validateEnv';
+export * from './types/types';
