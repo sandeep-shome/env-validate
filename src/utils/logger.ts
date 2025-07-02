@@ -9,15 +9,23 @@ const color = {
 };
 
 export const logger = {
+  errorHeader: () => {
+    console.error(`${color.red}${logSymbols.error}[ERROR]:${color.reset}`);
+  },
+
   error: (message: string | string[]) => {
     console.error(
-      `${color.red}${logSymbols.error} ${Array.isArray(message) ? message.join('\n- ') : message}${color.reset}`,
+      `${color.red}${Array.isArray(message) ? message.join('\n- ') : message}${color.reset}`,
     );
+  },
+
+  warnHeader: () => {
+    console.log(`${color.yellow}${logSymbols.warning}[WARN]:${color.reset}`);
   },
 
   warn: (message: string | string[]) => {
     console.log(
-      `${color.yellow}${logSymbols.warning} ${Array.isArray(message) ? message.join('\n- ') : message}${color.reset}`,
+      `${color.yellow}${Array.isArray(message) ? message.join('\n- ') : message}${color.reset}`,
     );
   },
 
