@@ -26,7 +26,7 @@ export const validateRawEnv = (schema: EnvSchema): ValidateRawEnvRes => {
     }
 
     if (!def.required) {
-      result.warnings.push(`${key} is marked as not required, may occurs error`);
+      result.warnings.push(`${key} is marked as not required; it may cause unexpected behavior.`);
       result.variables[key] = envRaw;
       continue;
     }
@@ -37,23 +37,24 @@ export const validateRawEnv = (schema: EnvSchema): ValidateRawEnvRes => {
         break;
       case 'number':
         if (isNaN(Number(envRaw))) {
-          result.errors.push(`${key} is marked as number but number is not provided`);
-        } else {
+          result.errors.push(`${key} is expected to be a number, but got "${envRaw}"`);
           result.variables[key] = envRaw;
         }
         break;
       case 'boolean':
         if (envRaw != 'true' && envRaw != 'false') {
-          result.errors.push(`${key} is marked as boolean but boolean is not provided`);
+          result.errors.push(`${key} must be either "true" or "false", but got "${envRaw}"`);
         } else {
           result.variables[key] = envRaw;
         }
         break;
       case 'enum':
-        if ('values' in def) {
-          result.errors.push(`${key} is marked as enum, values not provided`);
-        } else if (!def.values?.includes(envRaw!)) {
-          result.errors.push(`${key} is enum, but not matched with teh values provided`);
+        if (!('values' in def) || !def.values || def.values.length === 0) {
+          result.errors.push(`${key} is marked as enum, but no values were provided.`);
+        } else if (!def.values.includes(envRaw!)) {
+          result.errors.push(
+            `${key} must be one of: ${def.values.join(', ')}, but got "${envRaw}"`,
+          );
         } else {
           result.variables[key] = envRaw;
         }
