@@ -23,3 +23,6 @@ yarn-error.log*
 # MacOS & system files
 .DS_Store
 Thumbs.db
+
+# Temp files
+/.temp
