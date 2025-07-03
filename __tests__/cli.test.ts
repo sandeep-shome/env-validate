@@ -1,12 +1,35 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { execa } from 'execa';
 import path from 'path';
+import fs from 'fs';
 
 // Path to compiled CLI
 const cliPath = path.resolve(__dirname, '../dist/bin/cli.js');
-const schemaPath = path.resolve(__dirname, '../temp/temp-schema.js');
+
+const tempDir = path.resolve(__dirname, '../temp');
+const schemaPath = path.join(tempDir, 'temp-schema.js');
+
+// Create schema code
+const schemaContent = `
+  export const schema = {
+    TEST_ENV: { type: 'string', required: true }
+  };
+`;
 
 describe('CLI: env-validate', () => {
+  beforeAll(() => {
+    if (!fs.existsSync(tempDir)) {
+      fs.mkdirSync(tempDir);
+    }
+    fs.writeFileSync(schemaPath, schemaContent, 'utf-8');
+  });
+
+  // After test: clean up
+  afterAll(() => {
+    fs.unlinkSync(schemaPath);
+    fs.rmdirSync(tempDir);
+  });
+
   it('should show error if required env is missing', async () => {
     const { stderr, exitCode } = await execa('node', [cliPath, '--schema', schemaPath], {
       env: {}, // simulate empty .env
