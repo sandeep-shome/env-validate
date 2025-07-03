@@ -10,7 +10,7 @@ const color = {
 
 export const logger = {
   errorHeader: () => {
-    console.error(`${color.red}${logSymbols.error}[ERROR]:${color.reset}`);
+    console.error(`${color.red}${logSymbols.error} [ERROR]:${color.reset}`);
   },
 
   error: (message: string | string[]) => {
@@ -20,7 +20,7 @@ export const logger = {
   },
 
   warnHeader: () => {
-    console.log(`${color.yellow}${logSymbols.warning}[WARN]:${color.reset}`);
+    console.log(`${color.yellow}${logSymbols.warning} [WARN]:${color.reset}`);
   },
 
   warn: (message: string | string[]) => {
