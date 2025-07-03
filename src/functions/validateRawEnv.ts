@@ -1,11 +1,6 @@
 import { EnvSchema } from '../types/types';
 import 'dotenv/config';
-
-type ValidateRawEnvRes = {
-  errors: string[];
-  warnings: string[];
-  variables: Record<string, unknown>;
-};
+import { ValidateRawEnvRes } from '../types/types';
 
 export const validateRawEnv = (schema: EnvSchema): ValidateRawEnvRes => {
   const result: ValidateRawEnvRes = {
