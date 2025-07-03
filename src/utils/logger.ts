@@ -1,5 +1,3 @@
-import logSymbols from 'log-symbols';
-
 const color = {
   reset: '\x1b[0m',
   red: '\x1b[31m',
@@ -10,7 +8,7 @@ const color = {
 
 export const logger = {
   errorHeader: () => {
-    console.error(`${logSymbols.error} [ERROR]:`);
+    console.error(`${color.red}[ERROR]:${color.reset}`);
   },
 
   error: (message: string | string[]) => {
@@ -20,7 +18,7 @@ export const logger = {
   },
 
   warnHeader: () => {
-    console.log(`${logSymbols.warning} [WARN]:`);
+    console.log(`${color.yellow}[WARN]:${color.reset}`);
   },
 
   warn: (message: string | string[]) => {
@@ -30,6 +28,6 @@ export const logger = {
   },
 
   success: (message: string) => {
-    console.log(`${color.green}${logSymbols.success} ${message}${color.reset}`);
+    console.log(`${color.green}${message}${color.reset}`);
   },
 };
