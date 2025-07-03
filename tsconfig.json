@@ -12,6 +12,6 @@
     "noUnusedLocals": true,
     "skipLibCheck": true
   },
-  "include": ["src", "tsup.config.ts", "__tests__"],
+  "include": ["src", "tsup.config.ts", "__tests__", "temp"],
   "exclude": ["node_modules"]
 }
