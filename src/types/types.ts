@@ -15,3 +15,10 @@ export interface EnvSchema {
 
 // Represents validated values
 export type ValidVars = Record<string, string | undefined>;
+
+// Represents validated env result
+export type ValidateRawEnvRes = {
+  errors: string[];
+  warnings: string[];
+  variables: Record<string, unknown>;
+};
