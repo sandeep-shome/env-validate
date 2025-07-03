@@ -1,14 +1,15 @@
 {
-  "name": "env-validator",
+  "name": "env-validate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Type-safe environment variable validator with CLI support for Node.js and TypeScript projects.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.js",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.js"
     }
   },
   "bin": {
@@ -22,8 +23,31 @@
     "test": "npx vitest",
     "prepare": "husky"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "env",
+    "environment",
+    "dotenv",
+    "validator",
+    "validation",
+    "cli",
+    "typescript",
+    "nodejs",
+    "config",
+    "schema"
+  ],
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandeep-shome/env-validate.git"
+  },
+  "homepage": "https://github.com/sandeep-shome/env-validate#readme",
+  "bugs": {
+    "url": "https://github.com/sandeep-shome/env-validate/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Sandeep Shome",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.30.0",
