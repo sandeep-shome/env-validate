@@ -135,41 +135,6 @@ npm run build
 
 Follow the steps below to run and verify the functionality of the CLI and validation logic.
 
-### 1️⃣ Create a Temporary Schema Folder
-
-Create a `temp/` folder at the root of the project:
-
-```bash
-md temp
-```
-
-### 2️⃣ Add a Temporary Schema File
-
-Inside the temp folder, create a test-schema.js file:
-
-```javascript
-// temp/test-schema.js
-export const schema = {
-  TEST_ENV: { type: 'string', required: true },
-  // Add more environment variables as needed
-};
-```
-
-**⚠️ Note:** Ensure the schema matches any expectations in your CLI-related tests.
-
-### 3️⃣ Run CLI in Dev Mode (Optional)
-
-Test your CLI manually before running automated tests:
-
-```bash
-npm run build
-node ./dist/bin/cli.js --schema ./temp/test-schema.js
-```
-
-### 4️⃣ Run the Test Suite
-
-Execute the full test suite using:
-
 ```bash
 npm run test
 ```
