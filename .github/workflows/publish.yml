@@ -27,11 +27,11 @@ jobs:
       - name: 📥 Install dependencies with pnpm
         run: pnpm install
 
-      - name: 🧪 Run tests
-        run: pnpm build && pnpm test
-
       - name: 🔨 Build the package
         run: pnpm build
+
+      - name: 🧪 Run tests
+        run: pnpm test
 
       - name: 🔍 Check for version change
         id: version-check
