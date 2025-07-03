@@ -19,7 +19,8 @@
     "lint": "npx eslint \"./src/**/*.{js,ts,json}\"",
     "format": "npx prettier --write \"./src/**/*.{js,ts,json}\"",
     "format:check": "npx prettier --check \"./src/**/*.{js,ts,json}\"",
-    "test": "npx vitest"
+    "test": "npx vitest",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
