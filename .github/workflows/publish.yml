@@ -1,4 +1,4 @@
-name: 🚀 Auto Publish to npm
+name: 🚀 Auto Publish with pnpm
 
 on:
   push:
@@ -13,20 +13,25 @@ jobs:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@v3
 
-      - name: 🟢 Setup Node.js
+      - name: 🟢 Setup Node.js with pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.6.3
+
+      - name: 📦 Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org/'
 
-      - name: 📦 Install dependencies
-        run: npm ci
+      - name: 📥 Install dependencies with pnpm
+        run: pnpm install
 
       - name: 🧪 Run tests
-        run: npm run test
+        run: pnpm test
 
       - name: 🔨 Build the package
-        run: npm run build
+        run: pnpm build
 
       - name: 🔍 Check for version change
         id: version-check
@@ -46,6 +51,6 @@ jobs:
 
       - name: 🚀 Publish to npm
         if: steps.version-check.outputs.should_publish == 'true'
-        run: npm publish --access public
+        run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
