@@ -1,6 +1,6 @@
 {
   "name": "env-watch",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Type-safe environment variable validator with CLI support for Node.js and TypeScript projects.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
