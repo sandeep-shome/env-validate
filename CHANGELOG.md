@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.0.1] - 2025-07-04
+
+### Added
+
+- ✅ "Tests Passing" badge added to `README.md` to indicate CI status.
+
 ## [1.0.0] - 2025-07-03
 
 ### ✨ Initial Release
