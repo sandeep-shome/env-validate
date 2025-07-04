@@ -1,6 +1,6 @@
 {
   "name": "env-watch",
-  "version": "1.0.1",
+  "version": "0.0.0",
   "description": "Type-safe environment variable validator with CLI support for Node.js and TypeScript projects.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -47,7 +47,7 @@
     "access": "public"
   },
   "author": "Sandeep Shome",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.30.0",
     "@types/node": "^24.0.8",
@@ -64,6 +64,7 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "@changesets/cli": "^2.29.5",
     "dotenv": "^17.0.0"
   }
 }
