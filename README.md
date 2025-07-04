@@ -1,6 +1,6 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
-# env-validate
+# env-watch
 
 A **type-safe, lightweight environment variable validator** for Node.js & TypeScript.  
 Use it as a **CLI tool** or integrate it directly into your application to ensure all your `.env` variables are present and valid.
@@ -17,7 +17,7 @@ Use it as a **CLI tool** or integrate it directly into your application to ensur
 
 ## ⬇️ Installation
 
-Install env-validate with npm
+Install env-watch with npm
 
 ```bash
 md my-app
@@ -108,13 +108,13 @@ Let’s make bee-jokes better together! 🐝✨
 Clone the project
 
 ```bash
-git clone https://github.com/sandeep-shome/env-validate.git
+git clone https://github.com/sandeep-shome/env-watch.git
 ```
 
 Go to the project directory
 
 ```bash
-cd env-validate
+cd env-watch
 ```
 
 🔧 Install dependencies
@@ -148,7 +148,7 @@ npm run test
 
 ## 📎Appendix
 
-env-validate is an open-source project developed and maintained by a solo developer with a passion for clean code, creativity, and community-driven tools.
+env-watch is an open-source project developed and maintained by a solo developer with a passion for clean code, creativity, and community-driven tools.
 
 You're welcome to explore, use, and contribute to the project! Whether it's fixing a bug, suggesting a feature, or improving the documentation — your contributions are highly appreciated.
 

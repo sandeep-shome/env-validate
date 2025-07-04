@@ -1,5 +1,5 @@
 {
-  "name": "env-validate",
+  "name": "env-watch",
   "version": "1.0.0",
   "description": "Type-safe environment variable validator with CLI support for Node.js and TypeScript projects.",
   "main": "./dist/index.js",
