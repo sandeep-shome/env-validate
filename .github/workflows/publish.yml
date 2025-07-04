@@ -32,25 +32,7 @@ jobs:
 
       - name: 🧪 Run tests
         run: pnpm test
-
-      - name: 🔍 Check for version change
-        id: version-check
-        run: |
-          git fetch --depth=2
-          if git diff --name-only HEAD^ HEAD | grep package.json > /dev/null; then
-            if git diff HEAD^ HEAD -- package.json | grep '"version":'; then
-              echo "Version changed. Proceeding with publish."
-              echo "should_publish=true" >> "$GITHUB_OUTPUT"
-            else
-              echo "No version change. Skipping publish."
-              echo "should_publish=false" >> "$GITHUB_OUTPUT"
-            fi
-          else
-            echo "package.json not changed. Skipping publish."
-            echo "should_publish=false" >> "$GITHUB_OUTPUT"
-
       - name: 🚀 Publish to npm
-        if: steps.version-check.outputs.should_publish == 'true'
         run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
