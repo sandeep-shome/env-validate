@@ -11,8 +11,8 @@ const schemaPath = path.join(tempDir, 'temp-schema.js');
 
 // Create schema code
 const schemaContent = `
-  export const schema = {
-    TEST_ENV: { type: 'string', required: true }
+   module.exports.schema = {
+    TEST_ENV: { type: "string", required: true }
   };
 `;
 
