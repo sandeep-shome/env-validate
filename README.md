@@ -1,4 +1,5 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+![GitHub branch check runs](https://img.shields.io/github/check-runs/sandeep-shome/env-validate/main)
 
 # env-watch
 
